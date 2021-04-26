@@ -5,10 +5,14 @@
   "repository": "https://github.com/jekyll-editor/jekyll-editor.github.io",
   "author": "cnxzq <<>>",
   "license": "MIT",
-  "scripts":{
-    "start":"node app.js"
+  "scripts": {
+    "start": "node app.js"
   },
   "dependencies": {
-    "express": "^4.17.1"
+    "@koa/router": "^10.0.0",
+    "@replit/database": "^2.0.1",
+    "express": "^4.17.1",
+    "koa": "^2.13.1",
+    "koa-static": "^5.0.0"
   }
 }
