@@ -1,7 +1,7 @@
 const relitedb = require("../database/relitdb");
 
 
-log(relitedb.get("a"))
+log(relitedb.get("key"))
 
 
 function log(message){
