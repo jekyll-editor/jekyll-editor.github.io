@@ -12,8 +12,14 @@ const db = require("../database/relitdb")
 const router = new Router();
 
 router
-    .all('/keys',async (ctx, next) => {
-        console.log(`请求了:${ctx.req.url}`);
+    .head("/",async (ctx,next)=>{
+        console.log(`请求了: head ${ctx.req.url}`);
+    })
+    .options("/",async (ctx,next)=>{
+        console.log(`请求了: options ${ctx.req.url}`);
+    })
+    .get('/keys',async (ctx, next) => {
+        ctx.body = await db.getAll()
     })
     .get('/keys/:id',async (ctx, next) => {
         ctx.body = await db.get(ctx.params.id)
@@ -27,11 +33,8 @@ router
     .del('/keys/:id',async (ctx, next) => {
         ctx.body = await db.get("key")
     })
+    .all('/keys',async (ctx, next) => {
+        console.log(`请求了:${ctx.req.url}`);
+    })
 
-app
-  .use(router.routes())
-  .use(router.allowedMethods());
-
-router.get("keys",async function(req,res){
-  
-});
+module.exports = router;
