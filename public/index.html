@@ -9,17 +9,14 @@
   <div id="app">
     {{message}}
   </div>
-  <script src="https://cdn.jsdelivr.net/npm/vue@3.0.11/dist/vue.global.prod.js"></script>
   <script>
-    const App = {
-      data(){
-        return {
-          message:"HelloWorld"
-        }
-      }
-    }
-
-    Vue.createApp(App).mount('#app')
+    if (typeof Promise === 'undefined')
+      document.write('<script src="https://unpkg.com/bluebird@3.7.2/js/browser/bluebird.core.min.js"><\/script>');
+    if (typeof fetch === 'undefined')
+      document.write('<script src="https://unpkg.com/whatwg-fetch@3.4.1/dist/fetch.umd.js"><\/script>');
   </script>
+  <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/system.min.js" integrity="sha256-+vRY3K2gKDQebJilL3EGcyj7cQpR0POstp352+k2Ga8=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@3.0.11/dist/vue.global.prod.js"></script>
+  <script src="index.js"></script>
 </body>
 </html>
